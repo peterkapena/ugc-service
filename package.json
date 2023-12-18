@@ -27,8 +27,8 @@
   "devDependencies": {
     "@jest/globals": "^29.7.0",
     "@types/bcrypt": "^5.0.2",
-    "@types/jsonwebtoken": "^9.0.5",
     "@types/cors": "^2.8.17",
+    "@types/jsonwebtoken": "^9.0.5",
     "class-validator": "^0.14.0",
     "dotenv": "^16.3.1",
     "dotenv-flow": "^4.0.1",

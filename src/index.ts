@@ -10,8 +10,6 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import { expressMiddleware } from "@apollo/server/express4";
-import { fileURLToPath } from "url";
-import { join, dirname } from "path";
 import Context from "./models/context.js";
 import UserClass from "./models/user.js";
 import { authChecker } from "./services/authchecker.js";
@@ -49,12 +47,8 @@ const server = new ApolloServer({
 });
 
 const app = express();
-// const httpServer = http.createServer(app);
 
 const main = async () => {
-  const __dirname = dirname(fileURLToPath(import.meta.url));
-
-  app.use("/spa", express.static(join(__dirname, "../../spa")));
   await server.start();
 
   app.use(
@@ -79,18 +73,10 @@ const main = async () => {
       },
     })
   );
-  
 
   const port = +process.env.APP_PORT;
   app.listen({ port });
-  // await new Promise((resolve) => app.listen({ port }, () => resolve(null)));
   console.log(`🚀 Server ready at http://localhost:${port}/`);
 };
 
 main().catch((err) => console.log(err));
-// import crypto from "./services/crypto.js";
-
-// const aa=crypto.encrypt("hello")
-// console.log(aa)
-
-// console.log(crypto.decrypt(aa))

@@ -1,15 +1,10 @@
-import { InputType, Field, ObjectType } from "type-graphql";
+import { InputType, Field } from "type-graphql";
 
 @InputType()
-export class CreateUserInput {
+export class SignupInput {
   @Field(() => String)
   email: String;
 
   @Field(() => String)
   password: String;
-}
-@ObjectType()
-export class CreateUserOutput {
-  @Field(() => [String])
-  message: String[];
 }

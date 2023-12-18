@@ -35,7 +35,7 @@ export interface UserClassQueryHelpers {
     return;
   }
 
-  if (!process.env.BCRYPT) throw new Error("BCRYPT is not set");
+  if (!SALT) throw new Error("BCRYPT is not set");
 
   this.password = await bcrypt.hash(this.password.toString(), SALT);
   this.created_on = new Date().toISOString();
